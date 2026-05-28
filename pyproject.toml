@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dragcalculator"
+version = "0.1.0"
+description = "Drag a screen region, OCR the numbers, and calculate the result."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mss>=10.0.0",
+    "numpy>=1.26.0",
+    "Pillow>=10.0.0",
+    "PyQt6>=6.9.0,<7",
+    "rapidocr-onnxruntime>=1.4.4,<2",
+]
+
+[project.scripts]
+dragcalculator = "dragcalculator.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

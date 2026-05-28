@@ -1,0 +1,7 @@
+mss>=10.0.0
+numpy>=1.26.0
+Pillow>=10.0.0
+PyInstaller>=6.13.0
+PyQt6>=6.9.0,<7
+rapidocr-onnxruntime>=1.4.4,<2
+
