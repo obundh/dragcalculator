@@ -320,8 +320,8 @@ class MainWindow(QWidget):
         self._refreshing_numbers = False
 
         self.setWindowTitle("DragCalculator")
-        self.setMinimumSize(980, 760)
-        self.resize(1180, 860)
+        self.setMinimumSize(1040, 920)
+        self.resize(1200, 960)
         self.setObjectName("AppWindow")
 
         self._build_ui()
@@ -401,7 +401,7 @@ class MainWindow(QWidget):
         workspace.setSpacing(16)
         workspace.setColumnStretch(0, 4)
         workspace.setColumnStretch(1, 2)
-        workspace.setRowStretch(0, 4)
+        workspace.setRowStretch(0, 5)
         workspace.setRowStretch(1, 1)
         root.addLayout(workspace, 1)
 
@@ -445,16 +445,17 @@ class MainWindow(QWidget):
 
         numbers_panel = QFrame()
         numbers_panel.setObjectName("Panel")
+        numbers_panel.setMinimumHeight(390)
         numbers_layout = QVBoxLayout(numbers_panel)
         numbers_layout.setContentsMargins(18, 18, 18, 18)
-        numbers_layout.setSpacing(10)
+        numbers_layout.setSpacing(8)
 
         numbers_title = QLabel("Numbers")
         numbers_title.setObjectName("PanelTitle")
         self.numbers_list = QListWidget()
         self.numbers_list.setObjectName("NumbersList")
-        self.numbers_list.setMinimumHeight(116)
-        self.numbers_list.setMaximumHeight(150)
+        self.numbers_list.setMinimumHeight(118)
+        self.numbers_list.setMaximumHeight(124)
         self.numbers_list.setDragDropMode(QAbstractItemView.DragDropMode.InternalMove)
         self.numbers_list.setDefaultDropAction(Qt.DropAction.MoveAction)
         self.numbers_list.setEditTriggers(
@@ -514,7 +515,7 @@ class MainWindow(QWidget):
         self._formula_insert_buttons: list[tuple[QPushButton, str | None]] = sci_buttons
         for position, (button, _text) in enumerate(sci_buttons):
             button.setObjectName("SmallButton")
-            sci_grid.addWidget(button, position // 4, position % 4)
+            sci_grid.addWidget(button, position // 6, position % 6)
         numbers_layout.addLayout(sci_grid)
         workspace.addWidget(numbers_panel, 0, 1)
 
@@ -828,15 +829,17 @@ class MainWindow(QWidget):
             }
 
             QPushButton#SmallButton {
-                min-width: 40px;
-                min-height: 26px;
-                padding: 6px 9px;
+                min-width: 36px;
+                min-height: 24px;
+                max-height: 30px;
+                padding: 5px 7px;
             }
 
             QPushButton#CalcButton {
                 min-width: 38px;
                 min-height: 26px;
-                padding: 8px 10px;
+                max-height: 34px;
+                padding: 7px 9px;
                 font-size: 15px;
             }
 
@@ -847,7 +850,9 @@ class MainWindow(QWidget):
                 color: #f8fafc;
                 font-family: "Consolas";
                 font-size: 14px;
-                padding: 9px 11px;
+                min-height: 30px;
+                max-height: 34px;
+                padding: 7px 10px;
             }
 
             QWidget#Preview {
@@ -875,10 +880,19 @@ class MainWindow(QWidget):
                 padding: 8px;
             }
 
-            QListWidget#NumbersList::item,
+            QListWidget#NumbersList {
+                font-size: 12px;
+            }
+
+            QListWidget#NumbersList::item {
+                border-bottom: 1px solid #e4eaf0;
+                min-height: 20px;
+                padding: 4px 6px;
+            }
+
             QListWidget#HistoryList::item {
                 border-bottom: 1px solid #e4eaf0;
-                padding: 9px 6px;
+                padding: 7px 6px;
             }
 
             QListWidget#NumbersList::item:selected,

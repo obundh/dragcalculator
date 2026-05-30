@@ -29,7 +29,7 @@ def main() -> int:
         ocr_result,
         calculate_from_text(ocr_result.text),
     )
-    controller.window.resize(1180, 860)
+    controller.window.resize(1200, 960)
     controller.window.show()
     controller.window.fit_preview_to_width()
     app.processEvents()
