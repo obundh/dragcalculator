@@ -7,6 +7,7 @@ name = "dragcalculator"
 version = "0.1.0"
 description = "Drag a screen region, OCR the numbers, and calculate the result."
 readme = "README.md"
+license = { text = "GPL-3.0-only" }
 requires-python = ">=3.10"
 dependencies = [
     "mss>=10.0.0",
@@ -21,4 +22,3 @@ dragcalculator = "dragcalculator.app:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
