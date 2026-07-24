@@ -101,3 +101,6 @@ docs\screenshots
 - Press `Esc` on the capture overlay to cancel.
 - The built `dist` folder is intentionally ignored by git.
 
+## License
+
+DragCalculator is licensed under the [GNU General Public License v3.0 only](LICENSE) because the application uses the GPL edition of PyQt6. Distributing a proprietary build requires appropriately licensed commercial components.
